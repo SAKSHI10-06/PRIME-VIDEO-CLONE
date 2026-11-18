@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getWatchlist, addToWatchlist, removeFromWatchlist, checkWatchlist } = require('../controllers/watchlistController');
+const { protect } = require('../middleware/auth');
+router.use(protect);
+router.get('/check/:movieId', checkWatchlist);
+router.get('/', getWatchlist);
+router.post('/', addToWatchlist);
+router.delete('/:movieId', removeFromWatchlist);
+module.exports = router;

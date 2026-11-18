@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getHistory, updateHistory, removeHistory, clearHistory } = require('../controllers/historyController');
+const { protect } = require('../middleware/auth');
+router.use(protect);
+router.get('/', getHistory);
+router.post('/', updateHistory);
+router.delete('/', clearHistory);
+router.delete('/:movieId', removeHistory);
+module.exports = router;

@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getMovies, getTrending, searchMovies, getMovieById, getSimilar, getByGenre } = require('../controllers/movieController');
+router.get('/trending', getTrending);
+router.get('/search', searchMovies);
+router.get('/genre/:genre', getByGenre);
+router.get('/:id/similar', getSimilar);
+router.get('/:id', getMovieById);
+router.get('/', getMovies);
+module.exports = router;
